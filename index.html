@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重庆翼动科技有限公司 - 2026年奖补项目申报清单</title>
+    <style>
+        :root {
+            --primary: #1a3a5c;
+            --primary-light: #2d5f8a;
+            --accent: #e8943a;
+            --accent-light: #f5b971;
+            --bg: #f4f6f9;
+            --card-bg: #ffffff;
+            --text: #2c3e50;
+            --text-light: #6c7a89;
+            --border: #dce3ec;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --info: #3498db;
+            --danger: #e74c3c;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* ===== Header (Sticky) ===== */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .header h1 span {
+            color: var(--accent-light);
+            font-weight: 400;
+            font-size: 16px;
+            margin-left: 12px;
+        }
+        .header-meta {
+            font-size: 13px;
+            opacity: 0.85;
+        }
+
+        /* ===== Navigation (V2 order) ===== */
+        .nav {
+            background: var(--primary);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            gap: 0;
+            overflow-x: auto;
+        }
+        .nav a {
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            padding: 14px 22px;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: all 0.2s;
+            border-bottom: 3px solid transparent;
+        }
+        .nav a:hover, .nav a.active {
+            color: white;
+            background: rgba(255,255,255,0.05);
+            border-bottom-color: var(--accent);
+        }
+
+        /* ===== Container ===== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 40px 60px;
+        }
+
+        /* ===== Section ===== */
+        .section {
+            margin-bottom: 40px;
+            scroll-margin-top: 120px;
+        }
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title .icon {
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        /* ===== Card ===== */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 28px 32px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+        }
+        .card h3 {
+            font-size: 17px;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .card p {
+            color: var(--text);
+            font-size: 15px;
+            line-height: 1.85;
+        }
+
+        /* ===== Info Grid ===== */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .info-item {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 22px 26px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+        }
+        .info-item .label {
+            font-size: 12px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+        .info-item .value {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* ===== Badge ===== */
+        .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .badge-national {
+            background: linear-gradient(135deg, #e74c3c22, #e74c3c11);
+            color: #c0392b;
+            border: 1px solid #e74c3c44;
+        }
+        .badge-province {
+            background: linear-gradient(135deg, #3498db22, #3498db11);
+            color: #2471a3;
+            border: 1px solid #3498db44;
+        }
+        .badge-city {
+            background: linear-gradient(135deg, #27ae6022, #27ae6011);
+            color: #1e8449;
+            border: 1px solid #27ae6044;
+        }
+        .badge-other {
+            background: linear-gradient(135deg, #8e44ad22, #8e44ad11);
+            color: #6c3483;
+            border: 1px solid #8e44ad44;
+        }
+
+        /* ===== Business Cards Grid ===== */
+        .biz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+        }
+        .biz-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .biz-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+        .biz-card .biz-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 14px;
+        }
+        .biz-card h4 {
+            font-size: 16px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        .biz-card p {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ===== Table ===== */
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            background: white;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            min-width: 1600px;
+        }
+        thead th {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        tbody td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+        tbody tr:hover {
+            background: #f0f5ff;
+        }
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .level-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .level-national { background: #fde8e8; color: #c0392b; }
+        .level-province { background: #e8f0fe; color: #2471a3; }
+        .level-city { background: #e8f8e8; color: #1e8449; }
+        .level-district { background: #f3e8fd; color: #6c3483; }
+        .amount {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 15px;
+        }
+        .category-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+            background: #f0f0f0;
+            color: #555;
+        }
+
+        /* ===== Tech Tags ===== */
+        .tech-tag {
+            display: inline-block;
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+            background: #e8f4fd;
+            color: #2471a3;
+            margin: 1px 2px;
+            white-space: nowrap;
+        }
+        .tech-tag.ai { background: #fde8f4; color: #c0392b; }
+        .tech-tag.hw { background: #e8fde8; color: #1e8449; }
+        .tech-tag.sw { background: #f3e8fd; color: #6c3483; }
+
+        /* ===== Stats Bar ===== */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+        }
+        .stat-card .stat-num {
+            font-size: 36px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-card .stat-label {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        /* ===== Filter Buttons ===== */
+        .filter-bar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 8px 18px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: white;
+            color: var(--text);
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* ===== Timeline ===== */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--accent), var(--primary));
+            border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 24px;
+            padding: 18px 24px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 24px;
+            width: 14px;
+            height: 14px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+        .timeline-item .year {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+        .timeline-item h4 {
+            font-size: 15px;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+        .timeline-item p {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+        .status-done {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            background: #27ae6022;
+            color: #27ae60;
+            font-weight: 600;
+        }
+        .status-progress {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            background: #f39c1222;
+            color: #f39c12;
+            font-weight: 600;
+        }
+
+        /* ===== Policy Links ===== */
+        .policy-ref a {
+            color: var(--info);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--info);
+            font-size: 13px;
+            transition: all 0.2s;
+            word-break: break-all;
+        }
+        .policy-ref a:hover {
+            color: var(--primary);
+            border-bottom-style: solid;
+        }
+        .policy-card a {
+            color: var(--info);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--info);
+            transition: all 0.2s;
+        }
+        .policy-card a:hover {
+            color: var(--primary);
+            border-bottom-style: solid;
+        }
+        .ext-icon {
+            display: inline-block;
+            font-size: 10px;
+            margin-left: 2px;
+            opacity: 0.6;
+        }
+
+        /* ===== Roadmap ===== */
+        .roadmap {
+            margin-top: 24px;
+        }
+        .roadmap-quarter {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 14px;
+            align-items: flex-start;
+        }
+        .roadmap-label {
+            min-width: 72px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary);
+            padding-top: 6px;
+            text-align: center;
+            background: white;
+            border-radius: 8px;
+            padding: 8px 4px;
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+        .roadmap-items {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .roadmap-item {
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            border: 1px solid;
+            line-height: 1.5;
+            max-width: 280px;
+        }
+        .roadmap-item.national { background: #fde8e811; border-color: #e74c3c44; color: #c0392b; }
+        .roadmap-item.province { background: #e8f0fe11; border-color: #3498db44; color: #2471a3; }
+        .roadmap-item.city { background: #e8f8e811; border-color: #27ae6044; color: #1e8449; }
+        .roadmap-item.district { background: #f3e8fd11; border-color: #8e44ad44; color: #6c3483; }
+
+        /* ===== Unit Summary ===== */
+        .unit-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+            margin-top: 20px;
+        }
+        .unit-card {
+            background: white;
+            border-radius: 10px;
+            padding: 18px 20px;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .unit-card .unit-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        .unit-card .unit-count {
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .unit-card .unit-desc {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        /* ===== Lifecycle Bar (固定板块) ===== */
+        .lifecycle-bar {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: #f8f9fc;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+        .lifecycle-bar h4 {
+            font-size: 14px;
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        .lifecycle-steps {
+            display: flex;
+            gap: 0;
+            position: relative;
+        }
+        .lifecycle-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            padding: 0 4px;
+        }
+        .lifecycle-step .bar {
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .lifecycle-step:nth-child(1) .bar { background: #3498db; }
+        .lifecycle-step:nth-child(2) .bar { background: #9b59b6; }
+        .lifecycle-step:nth-child(3) .bar { background: #27ae60; }
+        .lifecycle-step:nth-child(4) .bar { background: #e74c3c; }
+        .lifecycle-step .step-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+        .lifecycle-step .step-pct {
+            font-size: 18px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ===== Contact Bar (固定板块) ===== */
+        .contact-bar {
+            margin-top: 20px;
+            padding: 16px 28px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+        .contact-bar-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary);
+            white-space: nowrap;
+            padding-right: 12px;
+            border-right: 2px solid var(--border);
+        }
+        .contact-bar-name {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+        .contact-bar-info {
+            font-size: 13px;
+            color: var(--text);
+        }
+        .contact-bar-info .cb-label {
+            color: var(--text-light);
+            margin-right: 4px;
+        }
+        .contact-bar-info a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+        }
+        .contact-bar-info a:hover {
+            color: var(--accent);
+        }
+        .contact-bar-sep {
+            width: 1px;
+            height: 28px;
+            background: var(--border);
+        }
+
+        /* ===== V2: Collapse Sections (企业背景折叠面板) ===== */
+        .collapse-group {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 2px dashed var(--border);
+        }
+        .collapse-group-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        .collapse-section {
+            margin-bottom: 12px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--card-bg);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+        }
+        .collapse-section summary {
+            padding: 18px 28px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            list-style: none;
+            border-left: 4px solid var(--accent);
+            transition: background 0.2s;
+        }
+        .collapse-section summary::-webkit-details-marker { display: none; }
+        .collapse-section summary:hover { background: #f8f9fc; }
+        .collapse-section summary::before {
+            content: '\25B6';
+            font-size: 12px;
+            color: var(--accent);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+        .collapse-section[open] summary::before { transform: rotate(90deg); }
+        .collapse-section[open] summary {
+            border-bottom: 1px solid var(--border);
+            background: #f8f9fc;
+        }
+        .collapse-section .collapse-body {
+            padding: 24px 28px;
+            animation: fadeSlideIn 0.3s ease;
+        }
+        @keyframes fadeSlideIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            background: var(--primary);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 24px;
+            font-size: 13px;
+        }
+
+        /* ===== Print ===== */
+        @media print {
+            .header, .nav, .filter-bar { position: static; }
+            .section { page-break-inside: avoid; }
+            .collapse-section { break-inside: avoid; }
+            .collapse-section[open] summary { break-after: avoid; }
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .container { padding: 16px; }
+            .header-inner { padding: 16px; flex-direction: column; gap: 8px; }
+            .nav-inner { padding: 0 16px; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .info-grid { grid-template-columns: 1fr; }
+            .contact-bar { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .contact-bar-sep { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== Header + Nav (V2 导航顺序：项目优先) ===== -->
+<div class="header">
+    <div class="header-inner">
+        <h1>重庆翼动科技有限公司 <span>2026年度奖补项目申报清单</span></h1>
+        <div class="header-meta">编制日期：2026年6月12日 &nbsp;|&nbsp; 超微型工业级无人机 · 低空经济</div>
+    </div>
+    <div class="nav">
+        <div class="nav-inner">
+            <a href="#projects" class="active">可申报项目清单</a>
+            <a href="#policy">政策依据汇总</a>
+            <a href="#tips">重要提示</a>
+            <a href="#company">企业详情 &#9660;</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- ╔══════════════════════════════════════════════════════════╗ -->
+    <!-- ║  首屏核心板块：一进页面即展示                             ║ -->
+    <!-- ╚══════════════════════════════════════════════════════════╝ -->
+
+    <!-- ===== 1. 可申报项目清单（首屏第一板块） ===== -->
+    <div class="section" id="projects">
+        <div class="section-title">
+            <div class="icon">1</div>
+            2026年可申报奖补项目清单
+        </div>
+
+        <!-- 统计摘要 -->
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-num">15</div>
+                <div class="stat-label">可申报项目总数</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">~1,050+</div>
+                <div class="stat-label">预计奖补总额（万元）</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">4</div>
+                <div class="stat-label">国家级项目</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">11</div>
+                <div class="stat-label">省/市/区级项目</div>
+            </div>
+        </div>
+
+        <!-- 层级筛选 -->
+        <div class="filter-bar">
+            <button class="filter-btn active" onclick="filterTable('all')">全部</button>
+            <button class="filter-btn" onclick="filterTable('national')">国家级</button>
+            <button class="filter-btn" onclick="filterTable('province')">省级</button>
+            <button class="filter-btn" onclick="filterTable('city')">市级</button>
+            <button class="filter-btn" onclick="filterTable('district')">区级</button>
+        </div>
+
+        <!-- 数据表格（11列） -->
+        <div class="table-wrapper">
+            <table id="projectTable">
+                <thead>
+                    <tr>
+                        <th style="width:40px">序号</th>
+                        <th style="min-width:180px">可申报项目名称</th>
+                        <th style="min-width:100px">项目类别</th>
+                        <th style="min-width:110px">归口部门</th>
+                        <th style="min-width:80px">申报层级</th>
+                        <th style="min-width:80px">申报周期</th>
+                        <th style="min-width:100px">预计奖补金额（万元）</th>
+                        <th style="min-width:120px">关键技术方向</th>
+                        <th style="min-width:220px">申报核心条件</th>
+                        <th style="min-width:200px">所需材料</th>
+                        <th style="min-width:200px">政策依据（官方文件）</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 国家级项目 -->
+                    <tr data-level="national">
+                        <td>1</td>
+                        <td><strong>国家级专精特新"小巨人"企业</strong></td>
+                        <td><span class="category-tag">企业培育</span></td>
+                        <td>工信部 / 市经信委</td>
+                        <td><span class="level-tag level-national">国家级</span></td>
+                        <td>4-6月</td>
+                        <td class="amount">30-50</td>
+                        <td>
+                            <span class="tech-tag hw">微型无人机</span>
+                            <span class="tech-tag ai">自主飞行控制</span>
+                            <span class="tech-tag sw">飞控系统</span>
+                        </td>
+                        <td>已获市级专精特新认定；上年度营收不低于1亿元或近两年研发投入不低于2000万元；主导产品市场占有率全国前3或全球前5；拥有2项以上I类知识产权</td>
+                        <td>企业申请书、营业执照、审计报告、知识产权证书、市场占有率证明、研发项目立项文件、质量管理体系认证</td>
+                        <td class="policy-ref"><a href="http://iitb.hainan.gov.cn/iitb/zxqy/202604/0f02bc633b9b447cbad4a2ed01fd41bc.shtml" target="_blank" rel="noopener">工信部办公厅关于开展2026年度专精特新"小巨人"企业认定和复核工作的通知<span class="ext-icon">&#8599;</span></a></td>
+                    </tr>
+                    <tr data-level="national">
+                        <td>2</td>
+                        <td><strong>国家重点研发计划"智能机器人"重点专项</strong></td>
+                        <td><span class="category-tag">科技创新</span></td>
+                        <td>科技部 / 工信部</td>
+                        <td><span class="level-tag level-national">国家级</span></td>
+                        <td>12-2月</td>
+                        <td class="amount">100-500</td>
+                        <td>
+                            <span class="tech-tag hw">超微型无人机</span>
+                            <span class="tech-tag ai">具身智能</span>
+                            <span class="tech-tag sw">自主导航</span>
+                        </td>
+                        <td>具备独立法人资格的企事业单位；在无人机/机器人领域有核心技术积累；需联合申报，鼓励产学研用结合；项目负责人需具有高级职称</td>
+                        <td>项目申报书、实施方案、经费预算表、联合申报协议、团队资质证明、前期研究基础报告</td>
+                        <td class="policy-ref">国家重点研发计划"智能机器人"重点专项项目申报指南（科技部/工信部年度发布）</td>
+                    </tr>
+                    <tr data-level="national">
+                        <td>3</td>
+                        <td><strong>制造业单项冠军企业</strong></td>
+                        <td><span class="category-tag">企业培育</span></td>
+                        <td>工信部 / 市经信委</td>
+                        <td><span class="level-tag level-national">国家级</span></td>
+                        <td>4-6月</td>
+                        <td class="amount">50</td>
+                        <td>
+                            <span class="tech-tag hw">工业级无人机</span>
+                            <span class="tech-tag ai">智能装备</span>
+                        </td>
+                        <td>专注制造业5年以上；主导产品市场占有率全球前5或全国前3；近三年平均主营业务收入不低于4亿元（"小巨人"企业不低于1亿元）；生产技术国际领先</td>
+                        <td>申请书、营业执照、近3年审计报告、市场占有率证明、技术领先性证明、知识产权清单</td>
+                        <td class="policy-ref"><a href="http://admin.cq.gov.cn/ywdt/bmts/202605/t20260515_15680958.html" target="_blank" rel="noopener">2026年重庆市制造业单项冠军企业遴选启动通知<span class="ext-icon">&#8599;</span></a></td>
+                    </tr>
+                    <tr data-level="national">
+                        <td>4</td>
+                        <td><strong>首版次软件产品认定</strong></td>
+                        <td><span class="category-tag">科技创新</span></td>
+                        <td>工信部 / 市经信委</td>
+                        <td><span class="level-tag level-national">国家级</span></td>
+                        <td>Q2-Q3</td>
+                        <td class="amount">10-50</td>
+                        <td>
+                            <span class="tech-tag sw">无人机空管系统</span>
+                            <span class="tech-tag ai">飞行算法</span>
+                        </td>
+                        <td>软件产品具有自主知识产权；属首次开发且达到国内领先或国际先进水平；已通过第三方检测并投入实际应用；产品具有显著创新性</td>
+                        <td>软件著作权证书、软件检测报告、用户使用报告、技术创新性说明、产品测试报告</td>
+                        <td class="policy-ref"><a href="https://jjxxw.cq.gov.cn/zwgk_213/zcwj/qtwj/" target="_blank" rel="noopener">重庆市经信委关于公布首版次软件产品名单的通知<span class="ext-icon">&#8599;</span></a></td>
+                    </tr>
+
+                    <!-- 省级（重庆市级）项目 -->
+                    <tr data-level="province">
+                        <td>5</td>
+                        <td><strong>重庆市专精特新中小企业</strong></td>
+                        <td><span class="category-tag">企业培育</span></td>
+                        <td>市经信委</td>
+                        <td><span class="level-tag level-province">省级</span></td>
+                        <td>2-3月</td>
+                        <td class="amount">10-20</td>
+                        <td>
+                            <span class="tech-tag hw">微型无人机</span>
+                            <span class="tech-tag ai">飞控算法</span>
+                            <span class="tech-tag sw">数据链</span>
+                        </td>
+                        <td>已认定为创新型中小企业；从事特定细分市场2年以上；上年度研发费用不低于100万元且占营收比例不低于3%；拥有I类知识产权或发明专利</td>
+                        <td>企业申请表、营业执照、上年度审计报告、研发费用专项审计、知识产权证书、细分市场占有率证明</td>
+                        <td class="policy-ref"><a href="http://jjxxw.cq.gov.cn/zwgk_213/zcwj/qtwj/202602/t20260204_15380625.html" target="_blank" rel="noopener">渝经信中小〔2026〕2号：关于开展2026年重庆市专精特新中小企业申报和复核工作的通知<span class="ext-icon">&#8599;</span></a></td>
+                    </tr>
+                    <tr data-level="province">
+                        <td>6</td>
+                        <td><strong>重庆市低空经济高质量发展专项</strong></td>
+                        <td><span class="category-tag">低空经济</span></td>
+                        <td>市发改委 / 市经信委</td>
+                        <td><span class="level-tag level-province">省级</span></td>
+                        <td>全年/分批次</td>
+                        <td class="amount">100-500</td>
+                        <td>
+                            <span class="tech-tag hw">无人机整机</span>
+                            <span class="tech-tag ai">智能飞行</span>
+                            <span class="tech-tag sw">低空空管</span>
+                        </td>
+                        <td>在重庆市注册的低空经济领域企业；具备核心技术研发能力；项目需符合"33618"现代制造业集群方向；研发投入不低于项目总投入的30%</td>
+                        <td>项目申报书、技术方案、研发投入证明、应用场景说明、投资计划书、知识产权清单</td>
+                        <td class="policy-ref"><a href="https://www.cq.gov.cn/zwgk/zfxxgkml/zfgb/2025/d17q/202512/t20251203_15206478.html" target="_blank" rel="noopener">渝府办发〔2025〕58号：重庆市推动低空经济高质量发展若干政策措施<span class="ext-icon">&#8599;</span></a></td>
+                    </tr>
+                    <tr data-level="province">
+                        <td>7</td>
+                        <td><strong>重庆市企业科技攻关联合行动计划</strong></td>
+                        <td><span class="category-tag">科技创新</span></td>
+                        <td>市科技局</td>
+                        <td><span class="level-tag level-province">省级</span></td>
+                        <td>3-4月</td>
+                        <td class="amount">10</td>
+                        <td>
+                            <span class="tech-tag hw">无人机结构</span>
+                            <span class="tech-tag ai">避障算法</span>
+                            <span class="tech-tag sw">飞控软件</span>
+                        </td>
+                        <td>在重庆市注册的科技型企业；项目总投资不低于40万元；企业自筹与财政资金比例不低于3:1；需有明确的技术攻关方向</td>
+                        <td>项目申报书、技术攻关方案、经费预算、自筹资金承诺函、企业营业执照</td>
+                        <td class="policy-ref"><a href="https://kjj.cq.gov.cn/zwxx_176/tzgg/202603/t20260327_15571487.html" target="_blank" rel="noopener">重庆市科学技术局关于申报2026年度企业科技攻关联合行动计划项目的通知<span class="ext-icon">&#8599;</span></a></td>
+                    </tr>
+                    <tr data-level="province">
+                        <td>8</td>
+                        <td><strong>重庆市基础级智能工厂（数字化车间）</strong></td>
+                        <td><span class="category-tag">智能制造</span></td>
+                        <td>市经信委</td>
+                        <td><span class="level-tag level-province">省级</span></td>
+                        <td>2-4月</td>
+                        <td class="amount">50</td>
+                        <td>
+                            <span class="tech-tag hw">无人机产线</span>
+                            <span class="tech-tag sw">MES系统</span>
+                            <span class="tech-tag ai">智能检测</span>
+                        </td>
+                        <td>重庆市制造业企业；项目2024年1月后开工且已完工；智能制造能力成熟度评估达二级以上；未获过市级同类资金支持</td>
+                        <td>项目申报表、项目立项证明、竣工验收报告、智能制造评估报告、设备采购清单及发票</td>
+                        <td class="policy-ref"><a href="http://www.ddk.gov.cn/zwxx_271/bmjz/bmdt/202603/t20260302_15480172_zbb.html" target="_blank" rel="noopener">渝经信智能〔2026〕4号：关于开展2026年重庆市基础级智能工厂申报工作的通知<span class="ext-icon">&#8599;</span></a></td>
+                    </tr>
+                    <tr data-level="province">
+                        <td>9</td>
+                        <td><strong>重庆市企业技术中心认定</strong></td>
+                        <td><span class="category-tag">科技创新</span></td>
+                        <td>市经信委</td>
+                        <td><span class="level-tag level-province">省级</span></td>
+                        <td>4-6月</td>
+                        <td class="amount">30</td>
+                        <td>
+                            <span class="tech-tag hw">无人机研发</span>
+                            <span class="tech-tag ai">飞控算法</span>
+                            <span class="tech-tag sw">嵌入式系统</span>
+                        </td>
+                        <td>企业年营收不低于2000万元；研发经费占营收不低于3%；拥有专职研发人员不少于10人；具备较完善的研究开发和试验条件</td>
+                        <td>企业技术中心申请表、企业技术中心工作总结、近三年审计报告、研发投入专项审计、研发人员名册</td>
+                        <td class="policy-ref"><a href="https://jjxxw.cq.gov.cn/zwgk_213/zcwj/qtwj/" target="_blank" rel="noopener">重庆市经信委企业技术中心认定相关通知<span class="ext-icon">&#8599;</span></a></td>
+                    </tr>
+                    <tr data-level="province">
+                        <td>10</td>
+                        <td><strong>重庆市工业设计中心认定</strong></td>
+                        <td><span class="category-tag">工业设计</span></td>
+                        <td>市经信委</td>
+                        <td><span class="level-tag level-province">省级</span></td>
+                        <td>4-6月</td>
+                        <td class="amount">30</td>
+                        <td>
+                            <span class="tech-tag hw">无人机结构设计</span>
+                            <span class="tech-tag sw">工业设计</span>
+                        </td>
+                        <td>企业设有独立工业设计部门；有稳定的设计投入和专职设计团队（不少于5人）；近三年获得国内外设计专利或奖项；设计成果已实现产业化</td>
+                        <td>工业设计中心申请表、设计团队名册及资质、设计成果案例、设计专利证书、产业化证明</td>
+                        <td class="policy-ref"><a href="https://jjxxw.cq.gov.cn/zwgk_213/zcwj/qtwj/202604/t20260409_15599954.html" target="_blank" rel="noopener">重庆市经信委关于公布2025年度市级工业设计中心认定及复核名单的通知<span class="ext-icon">&#8599;</span></a></td>
+                    </tr>
+                    <tr data-level="province">
+                        <td>11</td>
+                        <td><strong>重庆市产业技术创新项目目录（第一批）</strong></td>
+                        <td><span class="category-tag">技术改造</span></td>
+                        <td>市经信委</td>
+                        <td><span class="level-tag level-province">省级</span></td>
+                        <td>5-6月</td>
+                        <td class="amount">50-200</td>
+                        <td>
+                            <span class="tech-tag hw">无人机制造</span>
+                            <span class="tech-tag ai">智能感知</span>
+                            <span class="tech-tag sw">飞行控制</span>
+                        </td>
+                        <td>聚焦"33618"现代制造业集群方向；研发总费用不低于100万元；具有明确技术创新目标；项目需为2024年后启动</td>
+                        <td>项目申报书、技术研发方案、研发投入证明、项目验收预期指标、知识产权规划</td>
+                        <td class="policy-ref"><a href="https://jjxxw.cq.gov.cn/zwgk_213/zcwj/qtwj/202604/t20260428_15641451.html" target="_blank" rel="noopener">关于开展2026年度重庆市产业技术创新项目目录（第一批）申报工作的通知<span class="ext-icon">&#8599;</span></a></td>
+                    </tr>
+
+                    <!-- 市级（重庆直辖市）项目 -->
+                    <tr data-level="city">
+                        <td>12</td>
+                        <td><strong>重庆市低空经济产业创新综合体</strong></td>
+                        <td><span class="category-tag">低空经济</span></td>
+                        <td>市科技局 / 市经信委</td>
+                        <td><span class="level-tag level-city">市级</span></td>
+                        <td>分批次</td>
+                        <td class="amount">最高500</td>
+                        <td>
+                            <span class="tech-tag hw">无人机整机</span>
+                            <span class="tech-tag ai">自主飞行</span>
+                            <span class="tech-tag sw">低空管理</span>
+                        </td>
+                        <td>由低空领域科技企业主导；具备较强研发能力和产业带动作用；需联合高校或科研院所；建设方案需经市级评审</td>
+                        <td>建设方案、联合共建协议、研发团队介绍、经费预算、场地证明、产业化目标</td>
+                        <td class="policy-ref"><a href="https://www.cq.gov.cn/zwgk/zfxxgkml/zfgb/2025/d17q/202512/t20251203_15206478.html" target="_blank" rel="noopener">渝府办发〔2025〕58号：重庆市推动低空经济高质量发展若干政策措施（第七条）<span class="ext-icon">&#8599;</span></a></td>
+                    </tr>
+                    <tr data-level="city">
+                        <td>13</td>
+                        <td><strong>重庆市低空产业链产品认定</strong></td>
+                        <td><span class="category-tag">低空经济</span></td>
+                        <td>市经信委 / 市发改委</td>
+                        <td><span class="level-tag level-city">市级</span></td>
+                        <td>年度认定</td>
+                        <td class="amount">10-30</td>
+                        <td>
+                            <span class="tech-tag hw">无人机整机</span>
+                            <span class="tech-tag hw">两栖无人机</span>
+                        </td>
+                        <td>产品属于低空经济产业链上下游；在重庆市研发生产；产品具有自主知识产权；技术水平达到行业先进</td>
+                        <td>产品认定申请表、知识产权证明、产品检测报告、销售合同、技术参数说明</td>
+                        <td class="policy-ref">重庆市低空产业链产品名录（2025年版）（市经信委、市发改委联合发布）</td>
+                    </tr>
+
+                    <!-- 区级项目 -->
+                    <tr data-level="district">
+                        <td>14</td>
+                        <td><strong>渝北区高新技术企业认定奖励</strong></td>
+                        <td><span class="category-tag">科技创新</span></td>
+                        <td>渝北区科技局</td>
+                        <td><span class="level-tag level-district">区级</span></td>
+                        <td>认定后申报</td>
+                        <td class="amount">20-30</td>
+                        <td>
+                            <span class="tech-tag hw">无人机</span>
+                            <span class="tech-tag ai">智能控制</span>
+                        </td>
+                        <td>已通过国家高新技术企业认定（有效期3年）；企业注册地在渝北区；无不良信用记录</td>
+                        <td>高新技术企业认定证书、企业营业执照、上年度纳税证明、区级奖励申请表</td>
+                        <td class="policy-ref">渝北区支持科技创新相关政策（区科技局发布）</td>
+                    </tr>
+                    <tr data-level="district">
+                        <td>15</td>
+                        <td><strong>渝北区企业研发投入补贴</strong></td>
+                        <td><span class="category-tag">科技创新</span></td>
+                        <td>渝北区科技局</td>
+                        <td><span class="level-tag level-district">区级</span></td>
+                        <td>年度申报</td>
+                        <td class="amount">5-20</td>
+                        <td>
+                            <span class="tech-tag hw">无人机研发</span>
+                            <span class="tech-tag ai">飞控算法</span>
+                            <span class="tech-tag sw">嵌入式系统</span>
+                        </td>
+                        <td>企业注册地在渝北区；上年度研发投入同比增长不低于10%；研发费用归集合规；已纳入科技统计报表体系</td>
+                        <td>研发投入补贴申请表、研发费用归集明细、科技统计年报、企业所得税汇算清缴报告</td>
+                        <td class="policy-ref">渝北区科技创新扶持办法（区科技局年度发布）</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 申报规划路线图 -->
+        <div style="margin-top: 30px;">
+            <h3 style="font-size: 17px; color: var(--primary); margin-bottom: 14px;">&#128197; 申报规划路线图（按时间窗口）</h3>
+            <div class="roadmap">
+                <div class="roadmap-quarter">
+                    <div class="roadmap-label">Q1<br><span style="font-size:11px;font-weight:400;color:var(--text-light)">1-3月</span></div>
+                    <div class="roadmap-items">
+                        <div class="roadmap-item province"><strong>&#9312;</strong> 重庆市专精特新中小企业<br><span style="opacity:0.7">2-3月 | 市经信委</span></div>
+                        <div class="roadmap-item province"><strong>&#9313;</strong> 企业科技攻关联合行动计划<br><span style="opacity:0.7">3-4月 | 市科技局</span></div>
+                    </div>
+                </div>
+                <div class="roadmap-quarter">
+                    <div class="roadmap-label">Q2<br><span style="font-size:11px;font-weight:400;color:var(--text-light)">4-6月</span></div>
+                    <div class="roadmap-items">
+                        <div class="roadmap-item national"><strong>&#9312;</strong> 专精特新"小巨人"企业<br><span style="opacity:0.7">4-6月 | 工信部</span></div>
+                        <div class="roadmap-item national"><strong>&#9313;</strong> 制造业单项冠军<br><span style="opacity:0.7">4-6月 | 工信部</span></div>
+                        <div class="roadmap-item province"><strong>&#9314;</strong> 企业技术中心认定<br><span style="opacity:0.7">4-6月 | 市经信委</span></div>
+                        <div class="roadmap-item province"><strong>&#9315;</strong> 工业设计中心认定<br><span style="opacity:0.7">4-6月 | 市经信委</span></div>
+                        <div class="roadmap-item province"><strong>&#9316;</strong> 产业技术创新项目目录<br><span style="opacity:0.7">5-6月 | 市经信委</span></div>
+                    </div>
+                </div>
+                <div class="roadmap-quarter">
+                    <div class="roadmap-label">Q3-Q4<br><span style="font-size:11px;font-weight:400;color:var(--text-light)">7-12月</span></div>
+                    <div class="roadmap-items">
+                        <div class="roadmap-item national"><strong>&#9312;</strong> 首版次软件产品认定<br><span style="opacity:0.7">Q2-Q3 | 工信部</span></div>
+                        <div class="roadmap-item district"><strong>&#9313;</strong> 渝北区研发投入补贴<br><span style="opacity:0.7">年度 | 区科技局</span></div>
+                    </div>
+                </div>
+                <div class="roadmap-quarter">
+                    <div class="roadmap-label">全年<br><span style="font-size:11px;font-weight:400;color:var(--text-light)">持续</span></div>
+                    <div class="roadmap-items">
+                        <div class="roadmap-item province"><strong>&#9312;</strong> 低空经济高质量发展专项<br><span style="opacity:0.7">全年/分批次 | 市发改委</span></div>
+                        <div class="roadmap-item city"><strong>&#9313;</strong> 低空经济产业创新综合体<br><span style="opacity:0.7">分批次 | 市科技局</span></div>
+                        <div class="roadmap-item city"><strong>&#9314;</strong> 低空产业链产品认定<br><span style="opacity:0.7">年度 | 市经信委</span></div>
+                        <div class="roadmap-item district"><strong>&#9315;</strong> 渝北区高企认定奖励<br><span style="opacity:0.7">认定后申报 | 区科技局</span></div>
+                        <div class="roadmap-item national"><strong>&#9316;</strong> 国家重点研发计划<br><span style="opacity:0.7">12-2月 | 科技部</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 归口部门项目分布 -->
+        <div style="margin-top: 30px;">
+            <h3 style="font-size: 17px; color: var(--primary); margin-bottom: 14px;">&#127970; 归口部门项目分布</h3>
+            <div class="unit-summary">
+                <div class="unit-card">
+                    <div class="unit-name">市经信委</div>
+                    <div class="unit-count">7</div>
+                    <div class="unit-desc">专精特新 / 智能工厂 / 企业技术中心 / 工业设计 / 技术创新 / 低空产业链</div>
+                </div>
+                <div class="unit-card">
+                    <div class="unit-name">市科技局</div>
+                    <div class="unit-count">2</div>
+                    <div class="unit-desc">科技攻关联合行动 / 低空创新综合体</div>
+                </div>
+                <div class="unit-card">
+                    <div class="unit-name">工信部/科技部</div>
+                    <div class="unit-count">4</div>
+                    <div class="unit-desc">小巨人 / 单项冠军 / 重点研发计划 / 首版次软件</div>
+                </div>
+                <div class="unit-card">
+                    <div class="unit-name">市发改委</div>
+                    <div class="unit-count">1</div>
+                    <div class="unit-desc">低空经济高质量发展专项</div>
+                </div>
+                <div class="unit-card">
+                    <div class="unit-name">渝北区科技局</div>
+                    <div class="unit-count">2</div>
+                    <div class="unit-desc">高企认定奖励 / 研发投入补贴</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 2. 政策依据汇总 ===== -->
+    <div class="section" id="policy">
+        <div class="section-title">
+            <div class="icon">2</div>
+            政策依据汇总
+        </div>
+
+        <!-- 国家级 -->
+        <div class="card policy-card">
+            <h3>国家级政策文件</h3>
+            <div style="margin-top: 12px; font-size: 14px; line-height: 2.2;">
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>1.</strong> <a href="http://iitb.hainan.gov.cn/iitb/zxqy/202604/0f02bc633b9b447cbad4a2ed01fd41bc.shtml" target="_blank" rel="noopener">工业和信息化部办公厅关于开展2026年度专精特新"小巨人"企业认定和复核工作的通知（工信厅企业〔2026〕号）<span class="ext-icon">&#8599;</span></a>
+                </div>
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>2.</strong> 关于加快培育发展制造业优质企业的指导意见（工信部政法〔2021〕70号）
+                </div>
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>3.</strong> 优质中小企业梯度培育管理办法（工信部企业〔2026〕2号）
+                </div>
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>4.</strong> 国家重点研发计划"智能机器人"重点专项项目申报指南（科技部/工信部年度发布）
+                </div>
+            </div>
+        </div>
+
+        <!-- 省级 -->
+        <div class="card policy-card">
+            <h3>重庆市级政策文件</h3>
+            <div style="margin-top: 12px; font-size: 14px; line-height: 2.2;">
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>1.</strong> <a href="https://www.cq.gov.cn/zwgk/zfxxgkml/zfgb/2025/d17q/202512/t20251203_15206478.html" target="_blank" rel="noopener">渝府办发〔2025〕58号：重庆市推动低空经济高质量发展若干政策措施（17条）<span class="ext-icon">&#8599;</span></a>
+                </div>
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>2.</strong> <a href="http://jjxxw.cq.gov.cn/zwgk_213/zcwj/qtwj/202602/t20260204_15380625.html" target="_blank" rel="noopener">渝经信中小〔2026〕2号：关于开展2026年重庆市专精特新中小企业申报和复核工作的通知<span class="ext-icon">&#8599;</span></a>
+                </div>
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>3.</strong> <a href="https://kjj.cq.gov.cn/zwxx_176/tzgg/202603/t20260327_15571487.html" target="_blank" rel="noopener">重庆市科学技术局关于申报2026年度企业科技攻关联合行动计划项目的通知<span class="ext-icon">&#8599;</span></a>
+                </div>
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>4.</strong> <a href="https://jjxxw.cq.gov.cn/zwgk_213/zcwj/qtwj/202604/t20260428_15641451.html" target="_blank" rel="noopener">关于开展2026年度重庆市产业技术创新项目目录（第一批）申报工作的通知<span class="ext-icon">&#8599;</span></a>
+                </div>
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>5.</strong> <a href="https://jjxxw.cq.gov.cn/zwgk_213/zcwj/qtwj/202604/t20260409_15599954.html" target="_blank" rel="noopener">重庆市经信委关于公布2025年度市级工业设计中心认定及复核名单的通知<span class="ext-icon">&#8599;</span></a>
+                </div>
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>6.</strong> 重庆市推进"专精特新"企业高质量发展专项行动计划（2022-2027年）
+                </div>
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>7.</strong> 重庆市促进大中小企业融通发展工作方案（2025-2027年）
+                </div>
+            </div>
+        </div>
+
+        <!-- 市级 -->
+        <div class="card policy-card">
+            <h3>渝北区级政策文件</h3>
+            <div style="margin-top: 12px; font-size: 14px; line-height: 2.2;">
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>1.</strong> 渝北区支持科技创新若干政策措施（区科技局发布）
+                </div>
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>2.</strong> 渝北区高新技术企业认定奖励实施细则
+                </div>
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>3.</strong> 渝北区科技创新扶持办法（年度更新）
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 3. 重要提示 + 项目申报全生命周期（固定板块） ===== -->
+    <div class="section" id="tips">
+        <div class="card" style="background: #fffbeb; border-color: #f5deb3;">
+            <h3 style="color: #b8860b;">&#9888;&#65039; 重要提示</h3>
+            <p style="font-size: 13px; color: #8b7355; margin-top: 8px;">
+                本清单所列信息基于公开资料整理，仅供参考。具体申报条件、奖补金额和时间节点以各级主管部门发布的最新官方文件为准。建议企业密切关注重庆市经济和信息化委员会、重庆市科技局、渝北区科技局的年度申报通知，提前做好材料准备。预计奖补金额可能因政策调整而变化，部分项目奖补金额需根据实际投资额计算。翼动科技作为低空经济领域企业，建议重点关注重庆市低空经济高质量发展专项（渝府办发〔2025〕58号）的政策红利。
+            </p>
+            <!-- ▼▼▼ 固定板块：项目申报全生命周期 —— 以下内容所有企业完全一致，不可修改 ▼▼▼ -->
+            <div class="lifecycle-bar">
+                <h4>&#128203; 项目申报全生命周期</h4>
+                <div class="lifecycle-steps">
+                    <div class="lifecycle-step">
+                        <div class="bar"></div>
+                        <div class="step-label">项目申报</div>
+                        <div class="step-pct">20%</div>
+                    </div>
+                    <div class="lifecycle-step">
+                        <div class="bar"></div>
+                        <div class="step-label">评审批复</div>
+                        <div class="step-pct">20%</div>
+                    </div>
+                    <div class="lifecycle-step">
+                        <div class="bar"></div>
+                        <div class="step-label">资金下达</div>
+                        <div class="step-pct">20%</div>
+                    </div>
+                    <div class="lifecycle-step" style="flex: 2;">
+                        <div class="bar"></div>
+                        <div class="step-label">结项验收</div>
+                        <div class="step-pct">40%</div>
+                    </div>
+                </div>
+            </div>
+            <!-- ▲▲▲ 固定板块结束 ▲▲▲ -->
+        </div>
+
+        <!-- ▼▼▼ 固定板块：项目咨询联系人 —— 以下内容所有企业完全一致，不可修改 ▼▼▼ -->
+        <div class="contact-bar">
+            <div class="contact-bar-title">&#128222; 项目咨询联系人</div>
+            <div class="contact-bar-name">赵璐红</div>
+            <div class="contact-bar-info">
+                <span class="cb-label">舍得酒业</span> &middot; 公共事务部总经理
+            </div>
+            <div class="contact-bar-sep"></div>
+            <div class="contact-bar-info">
+                <span class="cb-label">电话</span> <a href="tel:18884606786">18884606786</a>
+            </div>
+            <div class="contact-bar-sep"></div>
+            <div class="contact-bar-info">
+                <span class="cb-label">地址</span> 四川省成都市武侯区复地复城国际T1
+            </div>
+        </div>
+        <!-- ▲▲▲ 固定板块结束 ▲▲▲ -->
+    </div>
+
+    <!-- ╔══════════════════════════════════════════════════════════╗ -->
+    <!-- ║  折叠面板区域：企业背景信息，点击展开                     ║ -->
+    <!-- ╚══════════════════════════════════════════════════════════╝ -->
+
+    <div class="collapse-group" id="company">
+        <div class="collapse-group-title">&#9660; 企业详情（点击展开） &#9660;</div>
+
+        <!-- 企业概述（折叠） -->
+        <details class="collapse-section">
+            <summary>&#127970; 企业概述</summary>
+            <div class="collapse-body">
+                <div class="card">
+                    <p>重庆翼动科技有限公司成立于2013年9月，是国内首家经历民用无人机研发全过程的科技型企业，专注于超微型工业级无人机整机研制。公司坐落于重庆市渝北区，注册资本108.33万元，法定代表人乐放。公司被认定为"国家高新技术企业"（2025年）、"重庆市瞪羚企业"和"重庆市牛羚企业"，拥有33项专利和11个注册商标。公司目前已完成A轮融资（约5500万元），2025年订单超2000万元。公司被评价为聚焦"无人智能装备生态技术研制"的创新型中小企业，产品已入选《重庆市低空产业链产品名录（2025年版）》。</p>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="label">企业全称</div>
+                        <div class="value">重庆翼动科技有限公司</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">成立年份</div>
+                        <div class="value">2013年9月</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">注册资本</div>
+                        <div class="value">108.33万元</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">法定代表人</div>
+                        <div class="value">乐放</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">注册地址</div>
+                        <div class="value">重庆市渝北区双凤桥街道长空路483号</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">企业类型</div>
+                        <div class="value">私营/民营（非上市）</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">所属行业</div>
+                        <div class="value">航空/航天设备制造（无人智能装备）</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">融资阶段</div>
+                        <div class="value">A轮（约5500万元）</div>
+                    </div>
+                </div>
+            </div>
+        </details>
+
+        <!-- 主营业务（折叠） -->
+        <details class="collapse-section">
+            <summary>&#9881; 主营业务</summary>
+            <div class="collapse-body">
+                <div class="card">
+                    <p>翼动科技专注于超微型工业级无人机整机研制，核心产品包括"黑刺"超微型无人直升机（仅50克，国内最小工业级无人机）、"双擎"两栖微型无人机（80克，可飞行可地面行走）。公司掌握全自主知识产权的核心技术体系，涵盖超微型系统集成、自主飞行控制算法、卫星导航与避障、超视距数据链、先进复合材料工艺、蜂群组网等关键技术。业务覆盖工业巡检、城市治理、应急侦察、管道检测、低空安全防御等多个应用场景。</p>
+                </div>
+                <div class="biz-grid">
+                    <div class="biz-card">
+                        <div class="biz-icon" style="background: #e8f4fd;">&#128681;</div>
+                        <h4>"黑刺"超微型无人直升机</h4>
+                        <p>仅50克，510个精密零件，集成卫星导航、主动避障、光流定位、超视距数据链。2024年12月量产，2025年订单超2000万元。</p>
+                    </div>
+                    <div class="biz-card">
+                        <div class="biz-icon" style="background: #fde8f4;">&#128747;</div>
+                        <h4>"双擎"两栖微型无人机</h4>
+                        <p>约80克，可飞行穿梭直径30cm管道，落地后切换轮式行进模式。2026年全国两会重庆代表团展示项目，计划2026年量产。</p>
+                    </div>
+                    <div class="biz-card">
+                        <div class="biz-icon" style="background: #e8fde8;">&#9881;</div>
+                        <h4>工业巡检无人机</h4>
+                        <p>包括ET-1型多旋翼无人机（全碳纤维机身）、三维测绘、红外热成像、4G实时监控等多种工业应用场景型号。</p>
+                    </div>
+                    <div class="biz-card">
+                        <div class="biz-icon" style="background: #f3e8fd;">&#128737;</div>
+                        <h4>低空安全防御系统</h4>
+                        <p>无人机空管系统（低空交通管理）、反制无人机武器系统、低空防御系统，以及蜂群组网协同侦察能力。</p>
+                    </div>
+                </div>
+            </div>
+        </details>
+
+        <!-- 资质与荣誉（折叠） -->
+        <details class="collapse-section">
+            <summary>&#127942; 已获得的资质与荣誉</summary>
+            <div class="collapse-body">
+                <div class="card">
+                    <h3>国家级资质与荣誉</h3>
+                    <div class="badge-group">
+                        <span class="badge badge-national">&#127942; 国家高新技术企业（2025年认定）</span>
+                        <span class="badge badge-national">&#127942; 国家科技部创新基金扶持企业</span>
+                        <span class="badge badge-national">&#127942; 科技型中小企业</span>
+                        <span class="badge badge-national">&#127942; 创新型中小企业</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>市级资质与荣誉</h3>
+                    <div class="badge-group">
+                        <span class="badge badge-province">&#127941; 重庆市瞪羚企业</span>
+                        <span class="badge badge-province">&#127941; 重庆市牛羚企业</span>
+                        <span class="badge badge-province">&#127941; 入选《重庆市低空产业链产品名录（2025年版）》</span>
+                        <span class="badge badge-province">&#127941; 入选重庆市"低空装备+"典型应用场景案例</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>其他荣誉与认定</h3>
+                    <div class="badge-group">
+                        <span class="badge badge-other">&#127941; 2025世界智能产业博览会参展企业</span>
+                        <span class="badge badge-other">&#127941; 2026全国两会重庆代表团展示企业</span>
+                        <span class="badge badge-other">&#127941; 33项专利 / 11个注册商标</span>
+                        <span class="badge badge-other">&#127941; A轮融资企业</span>
+                    </div>
+                </div>
+            </div>
+        </details>
+
+        <!-- 近三年项目申请（折叠） -->
+        <details class="collapse-section">
+            <summary>&#128203; 近三年项目申请情况（2024-2026）</summary>
+            <div class="collapse-body">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="year">2026年3月</div>
+                        <h4>"双擎"两栖无人机亮相全国两会</h4>
+                        <p>作为"重庆宝贝"之一在重庆代表团开放团组会议上向中外媒体展示，展示自主全知识产权核心技术。 <span class="status-done">已展示</span></p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2026年1月</div>
+                        <h4>入选《重庆市低空产业链产品名录（2025年版）》</h4>
+                        <p>由市经信委、市发改委联合发布，翼动科技无人机产品正式纳入重庆市低空经济产业链产品名录。 <span class="status-done">已入选</span></p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2025年6月</div>
+                        <h4>2025世界智能产业博览会参展</h4>
+                        <p>在重庆国际博览中心N2031展台展示超微型无人机技术，向全球展示"重庆智造"。 <span class="status-done">已参展</span></p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2025年</div>
+                        <h4>国家高新技术企业认定</h4>
+                        <p>成功通过国家高新技术企业认定，获得国家级科技创新资质。 <span class="status-done">已通过</span></p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2025年</div>
+                        <h4>"黑刺"无人机入选国防重点项目</h4>
+                        <p>超微型无人直升机"黑刺"产品入选国防重点项目，获得军方关注与认可。 <span class="status-done">已入选</span></p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2025年1月</div>
+                        <h4>入选重庆市"低空装备+"典型应用场景案例</h4>
+                        <p>市经济信息委公示，翼动科技低空装备应用场景获市级认定。 <span class="status-done">已入选</span></p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2024年12月</div>
+                        <h4>"黑刺"超微型无人机正式量产</h4>
+                        <p>国内最小工业级无人机"黑刺"正式量产下线，标志着企业从研发阶段迈入产业化阶段。 <span class="status-done">已量产</span></p>
+                    </div>
+                </div>
+            </div>
+        </details>
+    </div>
+
+</div>
+
+<!-- ===== Footer ===== -->
+<div class="footer">
+    重庆翼动科技有限公司 &middot; 2026年度奖补项目申报清单 &middot; 仅供内部参考使用 &middot; 编制日期：2026年6月12日
+</div>
+
+<!-- ===== JavaScript ===== -->
+<script>
+    // 1. 导航平滑滚动 + 激活态切换
+    document.querySelectorAll('.nav a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+            this.classList.add('active');
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // 2. 表格层级筛选
+    function filterTable(level) {
+        const rows = document.querySelectorAll('#projectTable tbody tr');
+        const buttons = document.querySelectorAll('.filter-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+        rows.forEach(row => {
+            if (level === 'all' || row.dataset.level === level) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    }
+
+    // 3. 滚动监听 (Scroll Spy) - V2 适配新板块顺序
+    window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('.section, .collapse-group');
+        const navLinks = document.querySelectorAll('.nav a');
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 140;
+            if (window.scrollY >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // 4. 折叠面板：点击"企业详情"导航自动展开所有折叠面板
+    document.querySelector('.nav a[href="#company"]').addEventListener('click', function() {
+        setTimeout(() => {
+            document.querySelectorAll('.collapse-section').forEach(d => d.open = true);
+        }, 400);
+    });
+</script>
+
+</body>
+</html>
